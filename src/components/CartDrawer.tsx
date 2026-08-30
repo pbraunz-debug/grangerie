@@ -1,17 +1,38 @@
 'use client'
 
 import Image from 'next/image'
-import {useEffect, useRef} from 'react'
+import {useEffect, useRef, useState} from 'react'
 
 import {useCart} from './CartProvider'
 
 const FOCUSABLE =
   'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])'
 
+function formatMoney(value: number): string {
+  return Number.isInteger(value) ? `$${value}` : `$${value.toFixed(2)}`
+}
+
 export function CartDrawer({socksNote}: {socksNote: string}) {
-  const {cart, open, pending, closeCart, updateLine} = useCart()
+  const {cart, open, pending, closeCart, updateLine, applyPromo, removePromo} = useCart()
   const panelRef = useRef<HTMLDivElement>(null)
   const previouslyFocused = useRef<HTMLElement | null>(null)
+  const [promoInput, setPromoInput] = useState('')
+  // Transient notice from the last apply attempt (invalid / bedtime / one-per-order).
+  // When null, the applied code's own message stands, persisted with the cart.
+  const [promoNotice, setPromoNotice] = useState<string | null>(null)
+
+  async function onApplyPromo(e: React.FormEvent) {
+    e.preventDefault()
+    if (!promoInput.trim() || pending) return
+    const result = await applyPromo(promoInput)
+    setPromoNotice(result.message)
+    if (result.status === 'applied' || result.status === 'replaced') setPromoInput('')
+  }
+
+  async function onRemovePromo() {
+    await removePromo()
+    setPromoNotice(null)
+  }
 
   useEffect(() => {
     if (!open) return
@@ -228,7 +249,52 @@ export function CartDrawer({socksNote}: {socksNote: string}) {
         </div>
 
         <div style={{padding: '22px 26px', borderTop: '1px solid rgba(32,30,29,0.10)'}}>
-          <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: 18}}>
+          <form onSubmit={onApplyPromo} style={{display: 'flex', marginBottom: 12}}>
+            <label
+              htmlFor="promo-code"
+              style={{position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0 0 0 0)'}}
+            >
+              Promo code
+            </label>
+            <input
+              id="promo-code"
+              type="text"
+              value={promoInput}
+              onChange={(e) => setPromoInput(e.target.value)}
+              placeholder="Promo code"
+              autoComplete="off"
+              autoCapitalize="characters"
+              spellCheck={false}
+              style={{
+                flex: 1,
+                minWidth: 0,
+                padding: '12px 13px',
+                fontSize: 13,
+                letterSpacing: '0.08em',
+                fontFamily: 'inherit',
+                border: '1px solid rgba(32,30,29,0.22)',
+                borderRight: 0,
+                background: '#fff',
+                color: '#201e1d',
+                textTransform: 'uppercase',
+              }}
+            />
+            <button
+              type="submit"
+              disabled={pending}
+              className="gr-btn"
+              style={{padding: '12px 18px', background: '#201e1d', color: '#fff', border: 0}}
+            >
+              Apply
+            </button>
+          </form>
+          {(promoNotice ?? cart.promo?.message) && (
+            <p style={{fontSize: 13, lineHeight: '22px', color: 'var(--ink-65)', margin: '0 0 16px'}}>
+              {promoNotice ?? cart.promo?.message}
+            </p>
+          )}
+
+          <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: cart.promo ? 12 : 18}}>
             <span className="gr-label" style={{color: 'rgba(32,30,29,0.55)'}}>
               Subtotal
             </span>
@@ -236,6 +302,44 @@ export function CartDrawer({socksNote}: {socksNote: string}) {
               ${cart.subtotal}
             </span>
           </div>
+          {cart.promo && (
+            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12}}>
+              <span className="gr-label" style={{color: 'rgba(32,30,29,0.55)', display: 'flex', gap: 10, alignItems: 'baseline'}}>
+                {cart.promo.code} — &minus;{cart.promo.percent}%
+                <button
+                  type="button"
+                  onClick={onRemovePromo}
+                  disabled={pending}
+                  className="gr-label"
+                  style={{
+                    background: 'transparent',
+                    border: 0,
+                    color: 'rgba(32,30,29,0.45)',
+                    cursor: 'pointer',
+                    padding: 0,
+                    fontFamily: 'inherit',
+                    textDecoration: 'underline',
+                    textUnderlineOffset: 3,
+                  }}
+                >
+                  remove
+                </button>
+              </span>
+              <span style={{fontSize: 14, fontWeight: 300, letterSpacing: '0.06em'}}>
+                &minus;{formatMoney(cart.promo.discountAmount)}
+              </span>
+            </div>
+          )}
+          {cart.promo && typeof cart.total === 'number' && (
+            <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: 18}}>
+              <span className="gr-label" style={{color: 'rgba(32,30,29,0.55)'}}>
+                Total
+              </span>
+              <span style={{fontSize: 16, fontWeight: 300, letterSpacing: '0.06em'}}>
+                {formatMoney(cart.total)}
+              </span>
+            </div>
+          )}
           {cart.checkoutUrl ? (
             <a
               href={cart.checkoutUrl}

@@ -2,7 +2,14 @@
 
 import {createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode} from 'react'
 
-import {addToCartAction, getCartAction, updateLineAction} from '@/lib/cart-actions'
+import {
+  addToCartAction,
+  applyPromoAction,
+  getCartAction,
+  type PromoResult,
+  removePromoAction,
+  updateLineAction,
+} from '@/lib/cart-actions'
 import type {Cart} from '@/lib/shopify'
 
 interface CartContextValue {
@@ -13,6 +20,8 @@ interface CartContextValue {
   closeCart: () => void
   addToCart: (handle: string, size: string, quantity: number) => Promise<void>
   updateLine: (lineId: string, quantity: number) => Promise<void>
+  applyPromo: (code: string) => Promise<PromoResult>
+  removePromo: () => Promise<void>
 }
 
 const EMPTY_CART: Cart = {lines: [], subtotal: 0}
@@ -61,8 +70,30 @@ export function CartProvider({children}: {children: ReactNode}) {
     }
   }, [])
 
+  const applyPromo = useCallback(async (code: string) => {
+    setPending(true)
+    try {
+      const result = await applyPromoAction(code, new Date().getHours())
+      setCart(result.cart)
+      return result
+    } finally {
+      setPending(false)
+    }
+  }, [])
+
+  const removePromo = useCallback(async () => {
+    setPending(true)
+    try {
+      setCart(await removePromoAction())
+    } finally {
+      setPending(false)
+    }
+  }, [])
+
   return (
-    <CartContext.Provider value={{cart, open, pending, openCart, closeCart, addToCart, updateLine}}>
+    <CartContext.Provider
+      value={{cart, open, pending, openCart, closeCart, addToCart, updateLine, applyPromo, removePromo}}
+    >
       {children}
     </CartContext.Provider>
   )

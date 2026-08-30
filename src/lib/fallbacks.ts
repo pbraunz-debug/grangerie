@@ -37,7 +37,7 @@ export const fallbackCampaign: Campaign = {
   kicker: 'Autumn — sleepwear, entirely',
   headlineLines: ['Comfort is the new sex.', 'It’s Grangerie.'],
   bodyCopy:
-    'Candlelight, steam, a long exhale — and then a floor-length cotton gown, because that is how the evening actually ends. A pair of nap socks ships with every order. You did not ask for them. They are in the box.',
+    'Candlelight, steam, a long exhale — and then a floor-length cotton gown, because that is how the evening actually ends. A pair of nap socks ships with every order.',
   ctaLabel: 'Shop the collection',
   // Placeholder stock from the prototype; replace with brand photography in Sanity.
   heroPosterUrl:
@@ -71,33 +71,33 @@ export const fallbackPromises: Promise_[] = [
 export const fallbackStats: Stat[] = [
   {_id: 'stat-1', value: '100%', label: 'Of you, covered\nGive or take the head', order: 1},
   {_id: 'stat-2', value: '2', label: 'Nap socks per order\nA pair. Both feet', order: 2},
-  {_id: 'stat-3', value: '0', label: 'Cutouts, panels\nPeekaboo anything', order: 3},
+  {_id: 'stat-3', value: '0', label: 'Cutouts, panels\nAlso zero opinions solicited', order: 3},
   {_id: 'stat-4', value: '14oz', label: 'Cotton weight\nA real amount of cotton', order: 4},
 ]
 
 export const fallbackTestimonials: Testimonial[] = [
   {
-    _id: 'testimonial-angela',
-    quote: 'The socks came and I said, I did not order socks. And they said, correct.',
-    name: 'Angela D.',
-    city: 'Sarasota',
-    attribution: 'Angela D. — Sarasota — owns four',
+    _id: 'testimonial-renata',
+    quote: 'He said it wasn\u2019t very flattering. I asked, flattering to who. He\u2019s still thinking about it. It\u2019s been a month.',
+    name: 'Renata C.',
+    city: 'Tucson',
+    attribution: 'Renata C. — Tucson — owns three',
     placement: 'strip',
     order: 1,
   },
   {
-    _id: 'testimonial-marisol',
-    quote: 'I haven’t shaved in weeks, and he has no idea. Thanks, Grangerie.',
-    name: 'Marisol P.',
-    city: 'Tempe',
-    attribution: 'Marisol P. — Tempe — wears The No. 1 nightly',
+    _id: 'testimonial-paulette',
+    quote: 'For my birthday he bought me something red with straps. I wear it in summer, over the gown, as a decorative scarf. He has never mentioned it.',
+    name: 'Paulette M.',
+    city: 'Grand Rapids',
+    attribution: 'Paulette M. — Grand Rapids — wears The No. 1',
     placement: 'strip',
     order: 2,
   },
   {
     _id: 'testimonial-kathy',
     quote:
-      'My sister bought one and said nothing about it for six weeks, which, for that bitch, is a rave. She has never once complimented me. Anyway, I love the gown.',
+      'My sister bought one and said nothing about it for six weeks, which, for her, is a rave. Anyway, I love the gown, and the socks fit both of our feet, which she also hasn\u2019t acknowledged.',
     name: 'Kathy L.',
     city: 'Bethesda',
     attribution: 'Kathy L. — Bethesda — wears The Housecoat',
@@ -126,15 +126,20 @@ export const fallbackProducts: Product[] = [
     price: 88,
     blurb: 'Faded roses on heavyweight cotton. The neckline is at the neck.',
     longDescriptionText: [
-      'Faded roses on 14oz heavyweight cotton, printed the way they used to print them, which is to say: faded already. It goes on over the head. There is no zipper, because a zipper is a decision, and you are done making those today.',
-      'The neckline is at the neck. The hem is at the ankle. Between those two points there is cotton, and only cotton, and nobody needs to know anything else.',
-      'Two deep front pockets. We do not ask what is in the pockets. That was an early decision and we have honored it.',
+      'Faded roses on 14oz heavyweight cotton, printed the way they used to print them, which is to say: faded already. This is the original. The gown your grandmother wore while outliving two husbands and a business partner.',
+      'The neckline is at the neck. The hem is at the ankle. Between those two points there is cotton, and only cotton, and the cotton is not accepting questions at this time.',
+      'Two deep front pockets, contents yours. Put it on at 6 p.m. and watch a grown man learn to read a room.',
     ],
     fabricWeightOz: 14,
     images: [{url: '/img/no1.jpeg', alt: 'The No. 1 — ankle-length faded-floral cotton nightgown, high neck, long sleeves'}],
     sizes: ['S', 'M', 'L', 'XL', '2X'],
     inStock: true,
     order: 1,
+    testimonial: {
+      quote:
+        'I put it on at 6:15 now. My husband calls it \u2018the signal.\u2019 He\u2019s right and he should keep studying.',
+      attribution: 'Dawn F. — Erie — 6:15 sharp',
+    },
   },
   {
     _id: 'product-housecoat',
@@ -146,14 +151,19 @@ export const fallbackProducts: Product[] = [
     blurb: 'For answering the door at a distance you control.',
     longDescriptionText: [
       'Quilted, floor-length, belted. For answering the door at a distance you control. The belt is decorative in the sense that the coat works either way; it is functional in the sense that tying it communicates something, and everyone on the porch understands what.',
-      'It passed the lamp test on the first try. Most things do not pass the lamp test on the first try.',
-      'Holds a mug at any temperature. The mug is not included. The nap socks are.',
+      'It passed the lamp test on the first try, which almost nothing does, and which the other garments have not been told.',
+      'Holds a mug at any temperature and a stare of any length. Married women report using it to say \u201cwe\u2019ll see\u201d without speaking. The mug is not included. The nap socks are.',
     ],
     fabricWeightOz: 14,
     images: [{url: '/img/housecoat.jpeg', alt: 'The Housecoat — quilted floor-length housecoat, belted, hands in pockets'}],
     sizes: ['S', 'M', 'L', 'XL', '2X'],
     inStock: true,
     order: 2,
+    testimonial: {
+      quote:
+        'A man came to the door selling solar panels. I tied the belt. He thanked me for my time before he finished his sentence.',
+      attribution: 'Yolanda T. — Fresno — porch use, primarily',
+    },
   },
   {
     _id: 'product-two-piece',
@@ -166,13 +176,18 @@ export const fallbackProducts: Product[] = [
     longDescriptionText: [
       'A loose flannel two-piece with long sleeves and a full placket. Buttoned to the top button. That is the point of the top button.',
       'The top and the bottom are cut generously enough that, worn together, they are informationally equivalent to the gowns. We checked. With the lamp.',
-      'Two pieces means two chances to be covered. Both are taken.',
+      'A man once described this set as \u201csending mixed signals.\u201d It is not. It is sending one signal, clearly, in flannel, on every channel. Two pieces means two chances to be covered. Both are taken.',
     ],
     fabricWeightOz: 14,
     images: [{url: '/img/twopiece.jpeg', alt: 'The Two-Piece, Modest — loose flannel two-piece, long sleeves buttoned to the top'}],
     sizes: ['S', 'M', 'L', 'XL', '2X'],
     inStock: true,
     order: 3,
+    testimonial: {
+      quote:
+        'On Valentine\u2019s Day he lit candles. I stood in front of one. Passed. Best night of sleep of my entire marriage.',
+      attribution: 'Bernice K. — Skokie — buttons all of them',
+    },
   },
   {
     _id: 'product-big-one',
@@ -181,10 +196,10 @@ export const fallbackProducts: Product[] = [
     cut: 'tent',
     cutLabel: 'Tent cut',
     price: 102,
-    blurb: 'Extremely generous through the middle. Nobody knows anything.',
+    blurb: 'Tent cut. You could raise a family in there and nobody would be told.',
     longDescriptionText: [
-      'Extremely generous through the middle. Nobody knows anything. Three-quarter sleeves, tent cut, an amount of cotton we had to explain to our supplier twice.',
-      'You can sit cross-legged inside it entirely. You can bring a snack in there. We designed for that on purpose and we would do it again.',
+      'Three-quarter sleeves, tent cut, and an amount of cotton we had to explain to our supplier twice. Extremely generous through the middle. Nobody knows anything, and under this gown, nobody ever will.',
+      'You can sit cross-legged inside it entirely. You can bring a snack in there. You can conduct your whole evening in there while a man on the couch wonders, correctly, whether you can hear him. We designed for all of that on purpose and we would do it again.',
       'It is our largest gown, and it is exactly as large as it needs to be, which is very.',
     ],
     fabricWeightOz: 14,
@@ -198,6 +213,11 @@ export const fallbackProducts: Product[] = [
     sizes: ['S', 'M', 'L', 'XL', '2X'],
     inStock: true,
     order: 4,
+    testimonial: {
+      quote:
+        'I eat crackers in there. Whole sleeves of them. From the outside there is no evidence. He hears something but he\u2019ll never prove it.',
+      attribution: 'Carol Anne W. — Chattanooga — tent cut loyalist',
+    },
   },
 ]
 
@@ -216,6 +236,12 @@ export const collectionHeading = {
     'You will not believe what these women have going on under there. Neither will they, by 9 p.m.',
 }
 
+export const shopHeading = {
+  kicker: 'The collection — all four of them',
+  headline:
+    'Four garments. Zero of them are \u201ca little something.\u201d All of them are a lot of something.',
+}
+
 export const promisesHeading = {
   kicker: 'How we do it here',
   headline: 'Three promises, held firmly',
@@ -224,12 +250,12 @@ export const promisesHeading = {
 export const socksBand = {
   kicker: 'Included with every order',
   headline: 'Nap socks. They come with it.',
-  body: 'Ribbed, ankle-high, one size, a color we are calling Oatmeal. You cannot buy them separately and you cannot decline them. We made them optional for eleven days in the spring and people chose wrong, so that is over now.',
+  body: 'Ribbed, ankle-high, one size, a color we are calling Oatmeal. You cannot buy them separately and you cannot decline them. Several men have written in to ask why. The socks do not answer to them and neither do we.',
   closing: 'Put them on. Take a nap. That is the whole instruction.',
 }
 
 export const closingPoster = {
-  headlineLines: ['Comfort is the new sex.', 'You are covered.'],
+  headlineLines: ['Comfort is the new sex.', 'He can Google the old one.'],
   ctaLabel: 'Take one home — nap socks included',
 }
 
@@ -250,15 +276,21 @@ export const fallbackPages: PageDoc[] = [
     bodyText: [
       {
         paragraphs: [
-          'Grangerie makes nightgowns for people who are done for the day. Floor-length, heavyweight, over the head in one motion. Comfort is the new sex. It’s Grangerie.',
+          'Grangerie makes nightgowns for women who are done for the day, and in some cases done in general. Floor-length. Heavyweight. On in one motion, like closing a store.',
+        ],
+      },
+      {
+        heading: 'How it started',
+        paragraphs: [
+          'Grangerie was founded the night our founder\u2019s husband looked at her nightgown and asked, \u201cAre you wearing that to bed?\u201d She said yes. Then she wore it to bed for eleven more years and started a company. He is very supportive now. He had a period of adjustment. The period of adjustment is called marriage.',
         ],
       },
       {
         heading: 'The promises',
         paragraphs: [
-          'It goes on over the head. There is no zipper, because a zipper is a decision, and you are done making those today. One motion. It ends at the ankle. The ankle is where it ends.',
-          'We hold it up to a lamp. Every garment, every time. If a person standing behind it becomes visible in any way, it does not leave the building. It stays. We keep it. We have a room.',
-          'Pockets, and their purpose. Two deep front pockets: a phone, a granola bar, and one item you will not explain to anybody. We do not ask what is in the pockets. That was an early decision and we have honored it.',
+          'It goes on over the head. One motion, and the day is legally over. Anything that happens after the gown is on is the gown\u2019s business.',
+          'We hold it up to a lamp. The full procedure is described below, because people ask, and because we are proud of it in a way that has been described as \u201cconcerning.\u201d',
+          'Pockets, and their purpose. Two of them, deep. What goes in them is between you and the pockets. Our full policy is below and it has held under pressure.',
         ],
       },
       {
@@ -272,15 +304,15 @@ export const fallbackPages: PageDoc[] = [
       {
         heading: 'The pockets policy',
         paragraphs: [
-          'We do not ask what is in the pockets. That was an early decision and we have honored it.',
+          'We do not ask what is in the pockets. We decided that on day one and it has never once been hard to honor, which tells you it was the right call.',
           'The policy has been tested. In 2024 a customer in Duluth wrote to tell us what was in her pockets. We did not open the letter. We have the letter. It is in a drawer, and the drawer is closed, and that is the policy working exactly as designed.',
+          'Husbands sometimes ask what is in the pockets. That is between the husband and the pockets. Our involvement ends at the seam.',
         ],
       },
       {
         heading: 'The socks',
         paragraphs: [
-          'A pair of nap socks ships with every order. Ribbed, ankle-high, one size, a color we are calling Oatmeal. You cannot buy them separately and you cannot decline them. We made them optional for eleven days in the spring and people chose wrong, so that is over now.',
-          'Put them on. Take a nap. That is the whole instruction.',
+          'Ribbed, ankle-high, one size, a color we are calling Oatmeal. They are not for sale, they are not optional, and they are not a metaphor. They are socks. Put them on. Take a nap. That is the whole instruction.',
         ],
       },
     ],
@@ -296,42 +328,60 @@ export const fallbackPages: PageDoc[] = [
       {
         heading: 'Can I decline the nap socks?',
         paragraphs: [
-          'No. We made them optional for eleven days in the spring and people chose wrong, so that is over now. You did not ask for them. They are in the box.',
+          'No. We made them optional for eleven days one spring, as an experiment, and people chose wrong, so that experiment is over and will not be repeated. The socks come. Think of them less as a gift and more as a fact.',
         ],
       },
       {
         heading: 'Is it see-through?',
         paragraphs: [
-          'No. We hold every garment up to a lamp. If a person standing behind it becomes visible in any way, it does not leave the building. It stays. We keep it. We have a room.',
+          'No. Every garment is tested against a lamp before it ships \u2014 the full ritual is described on The House page, and we stand by every word. If your gown ever fails a lamp in your own home, email us. We will handle it the way other companies handle recalls.',
         ],
       },
       {
         heading: 'What sizes do you carry?',
         paragraphs: [
-          'S through 2X. Every cut is generous, and The Big One is extremely generous through the middle. Nobody knows anything. If you are between sizes, go up. There is no situation this garment addresses that is improved by it being smaller.',
+          'S through 2X, every cut generous. If you are between sizes, go up. In the history of this company, no one has ever put on a Grangerie and thought, \u201cI wish this were less.\u201d',
         ],
       },
       {
         heading: 'Is there a zipper?',
         paragraphs: [
-          'There is no zipper, because a zipper is a decision, and you are done making those today. It goes on over the head. One motion.',
+          'No. Over the head, one motion, done. If you want to spend your evening operating equipment, that is what the dishwasher is for, and we both know who\u2019s loading it.',
         ],
       },
       {
         heading: 'What can I keep in the pockets?',
         paragraphs: [
-          'A phone, a granola bar, and one item you will not explain to anybody. We do not ask what is in the pockets. That was an early decision and we have honored it.',
+          'Anything. A phone. A snack. The last word. We have a strict no-questions policy about the pockets \u2014 full text on The House page \u2014 and it has survived everything, including one letter from Duluth.',
         ],
       },
       {
         heading: 'Is it machine washable?',
         paragraphs: [
-          'Yes. Cold wash, tumble low, and it comes out softer every time, like it is settling in. The socks can go in the same load. They are not delicate. Nothing we make is delicate.',
+          'Yes. Cold wash, tumble low. It comes out softer every time, like it\u2019s settling in for the long haul, which it is. The socks go in the same load. Nothing we make requires special handling. We save that for ourselves.',
         ],
       },
       {
         heading: 'Can I buy the nap socks separately?',
-        paragraphs: ['No. They come with it. That is the whole arrangement.'],
+        paragraphs: ['No. The socks and the gown arrive together, like in-laws.'],
+      },
+      {
+        heading: 'My husband asked if you make anything shorter.',
+        paragraphs: [
+          'We got this question enough times that it earned a permanent spot on this page. No. Everything we make ends at the ankle. The ankle is a load-bearing part of our whole deal. Tell him we said hi.',
+        ],
+      },
+      {
+        heading: 'Is this lingerie?',
+        paragraphs: [
+          'Legally, we have no idea. Spiritually, it is the opposite of lingerie: lingerie is designed to be looked at, and a Grangerie is designed to end the looking portion of the evening. Both are valid. One of them comes with socks.',
+        ],
+      },
+      {
+        heading: 'Can I wear it outside the house?',
+        paragraphs: [
+          'You can wear it anywhere. The Housecoat in particular was engineered for the driveway, the mailbox, and standing on the porch watching a man attempt to parallel park. It performs beautifully in all three settings.',
+        ],
       },
     ],
   },
@@ -353,7 +403,8 @@ export const fallbackPages: PageDoc[] = [
       {
         heading: 'Returns',
         paragraphs: [
-          'Returns accepted within 30 days, unworn, for a full refund. The socks are yours. We do not take socks back. There is no version of this where we take the socks back.',
+          'Returns accepted within 30 days, unworn, for a full refund. Common reasons for returns: wrong size, changed mind. Not a valid reason: \u201cmy husband said it wasn\u2019t his favorite.\u201d We will process that return, but we will know.',
+          'The socks are yours. We do not take socks back. There is no version of this where we take the socks back.',
           'If a gown fails you in any way — a seam, a button, the lamp test in your own home — write to hello@grangerie.com and we will make it right, quietly and completely.',
         ],
       },
@@ -387,7 +438,7 @@ export const fallbackPages: PageDoc[] = [
       {
         heading: 'What we do not collect',
         paragraphs: [
-          'We do not ask what is in the pockets. That was an early decision and we have honored it. This policy extends to your data: if we do not need it to ship a gown, we do not want it.',
+          'Our pockets policy \u2014 we don\u2019t ask what\u2019s in them, ever \u2014 extends to your data: if we do not need it to ship a gown, we do not want it. We know less about you than your group chat does, and we intend to keep it that way.',
         ],
       },
       {
@@ -445,6 +496,12 @@ export const fallbackPages: PageDoc[] = [
         heading: '5. Liability',
         paragraphs: [
           'To the maximum extent permitted by law, our liability is limited to the amount you paid us. We are a nightgown company. The stakes were always going to be manageable.',
+        ],
+      },
+      {
+        heading: '5a. Spousal input',
+        paragraphs: [
+          'Grangerie does not accept feedback, sizing suggestions, or design requests submitted on behalf of a customer by her husband. This has come up. Twice.',
         ],
       },
       {

@@ -156,6 +156,7 @@ async function run() {
       sizes: product.sizes,
       inStock: product.inStock,
       order: product.order,
+      testimonial: product.testimonial,
       // shopifyProductId: fill in once the mirrored Shopify products exist.
     })
     console.log(`  seeded ${product.title}`)

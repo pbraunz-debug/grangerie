@@ -4,7 +4,7 @@ import Link from 'next/link'
 import {ProductCard} from '@/components/ProductCard'
 import {getProducts} from '@/lib/content'
 import type {Cut} from '@/lib/content-types'
-import {collectionHeading} from '@/lib/fallbacks'
+import {shopHeading} from '@/lib/fallbacks'
 
 export const metadata: Metadata = {
   title: 'The Collection',
@@ -34,13 +34,13 @@ export default async function ShopPage({searchParams}: Props) {
     <section className="gr-section-pad gr-gutter" style={{maxWidth: 1240, margin: '0 auto'}}>
       <div style={{textAlign: 'center', marginBottom: 'clamp(32px, 3.6vw, 48px)'}}>
         <p className="gr-kicker" style={{color: '#ec3013', margin: '0 0 22px'}}>
-          {collectionHeading.kicker}
+          {shopHeading.kicker}
         </p>
         <h1
           className="gr-display"
           style={{fontSize: 'clamp(28px, 3.4vw, 46px)', lineHeight: 1.18, margin: '0 auto', maxWidth: '30ch'}}
         >
-          {collectionHeading.headline}
+          {shopHeading.headline}
         </h1>
       </div>
 
@@ -97,7 +97,7 @@ export default async function ShopPage({searchParams}: Props) {
         className="gr-label"
         style={{textAlign: 'center', color: 'rgba(32,30,29,0.5)', margin: 'clamp(40px, 5vw, 64px) 0 0'}}
       >
-        Every order ships with a pair of nap socks. This is not optional and it never will be again.
+        Every order ships with a pair of nap socks. Your husband will ask if he gets a pair. He does not.
       </p>
     </section>
   )

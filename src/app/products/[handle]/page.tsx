@@ -138,6 +138,36 @@ export default async function ProductPage({params}: Props) {
               )}
             </div>
           )}
+
+          {product.testimonial && (
+            <figure
+              style={{margin: '36px 0 0', borderTop: '1px solid rgba(32,30,29,0.10)', paddingTop: 30}}
+            >
+              <blockquote
+                style={{
+                  fontWeight: 300,
+                  fontSize: 'clamp(18px, 1.9vw, 22px)',
+                  lineHeight: 1.5,
+                  letterSpacing: '-0.008em',
+                  margin: 0,
+                  maxWidth: '44ch',
+                }}
+              >
+                &ldquo;{product.testimonial.quote}&rdquo;
+              </blockquote>
+              <figcaption
+                style={{
+                  fontSize: 10.5,
+                  letterSpacing: '0.22em',
+                  textTransform: 'uppercase',
+                  color: 'rgba(32,30,29,0.5)',
+                  margin: '18px 0 0',
+                }}
+              >
+                {product.testimonial.attribution}
+              </figcaption>
+            </figure>
+          )}
         </div>
       </div>
 

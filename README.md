@@ -60,6 +60,31 @@ seed source. **The copy is verbatim by design — do not paraphrase it.**
    the socks to every cart; the Function keeps them $0 **through checkout**.
 5. Acceptance test: test checkout with any gown; the socks appear at $0 in the
    order summary.
+6. **Promo codes**: the cart drawer applies codes from `src/lib/promo-codes.ts`
+   and passes the applied code to the Shopify cart, so checkout honors it only
+   if a matching discount code exists in Shopify admin. Create these as
+   percentage discount codes (Admin → Discounts → Create → Discount code,
+   applies to all products, no minimum, combines with the nap-socks Function):
+
+   | Code | Percent |
+   | --- | --- |
+   | HESFINE | 10% |
+   | ASKINGFORME | 10% |
+   | THESIGNAL | 15% |
+   | NOTTONIGHT | 15% |
+   | GOODNIGHT | 10% |
+   | LAMPTESTED | 12% |
+   | GRANDMASRIGHT | 20% |
+   | ANNIVERSARY | 14% |
+   | FLATTERINGTOWHO | 15% |
+   | SLEEVEOFCRACKERS | 10% |
+   | HISCARDACTUALLY | 5% |
+   | SOCKSPLEASE | 0% (yes, zero — if Shopify refuses a 0% code, skip it; the cart already treats it as decorative) |
+
+   GOODNIGHT's before-9-p.m. rule is enforced by our cart in the customer's
+   local time; the Shopify admin code itself stays a plain always-on 10%
+   (Shopify cannot see the customer's clock). One code per order — leave
+   "combines with other discount codes" off.
 
 Cart id lives in an httpOnly cookie; mutations are server actions
 (`src/lib/cart-actions.ts`). The socks line cannot be removed. We made them

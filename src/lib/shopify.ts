@@ -29,6 +29,10 @@ export interface Cart {
   lines: CartLine[]
   subtotal: number
   checkoutUrl?: string
+  /** Applied promo code, decorated by the cart actions from the promo cookie. */
+  promo?: {code: string; percent: number; message: string; discountAmount: number}
+  /** Subtotal minus the promo discount; only set when a promo is applied. */
+  total?: number
 }
 
 async function shopifyFetch<T>(query: string, variables: Record<string, unknown> = {}): Promise<T> {
@@ -215,6 +219,22 @@ export async function removeCartLine(cartId: string, lineId: string): Promise<Ca
     {cartId, lineIds: [lineId]},
   )
   return normalizeCart(data.cartLinesRemove.cart)
+}
+
+/** Set (or clear, with []) the discount codes on a Shopify cart so they survive into checkout. */
+export async function updateCartDiscountCodes(cartId: string, codes: string[]): Promise<void> {
+  await shopifyFetch<{cartDiscountCodesUpdate: {cart: {id: string} | null}}>(
+    /* GraphQL */ `
+      mutation CartDiscountCodesUpdate($cartId: ID!, $discountCodes: [String!]) {
+        cartDiscountCodesUpdate(cartId: $cartId, discountCodes: $discountCodes) {
+          cart {
+            id
+          }
+        }
+      }
+    `,
+    {cartId, discountCodes: codes},
+  )
 }
 
 /** Resolve the variant id for a Shopify product + size option. */

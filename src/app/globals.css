@@ -1,0 +1,208 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ground: #ffffff;
+  --color-panel: #f7f5f3;
+  --color-strip: #fbfaf9;
+  --color-placeholder: #f2efed;
+  --color-ink: #201e1d;
+  --color-accent: #ec3013;
+
+  --font-sans: var(--font-archivo), system-ui, sans-serif;
+}
+
+:root {
+  --ink-65: rgba(32, 30, 29, 0.65);
+  --ink-70: rgba(32, 30, 29, 0.7);
+  --hairline: rgba(32, 30, 29, 0.1);
+}
+
+* {
+  border-radius: 0 !important;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #201e1d;
+  font-family: var(--font-archivo), system-ui, sans-serif;
+  text-wrap: pretty;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: #201e1d;
+  text-decoration: none;
+}
+a:hover {
+  color: #ec3013;
+}
+
+:focus-visible {
+  outline: 2px solid #ec3013;
+  outline-offset: 2px;
+}
+
+.gr-line {
+  display: block;
+}
+
+.gr-photo {
+  filter: saturate(0.72) contrast(1.03) brightness(1.02);
+}
+
+.gr-glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(22px) saturate(1.1);
+  -webkit-backdrop-filter: blur(22px) saturate(1.1);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 30px 80px rgba(32, 30, 29, 0.14);
+}
+
+@keyframes grPop {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes grSlideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Type utilities used across the site */
+.gr-kicker {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+.gr-label {
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.gr-display {
+  font-weight: 300;
+  letter-spacing: -0.015em;
+}
+.gr-btn {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: inherit;
+}
+.gr-btn-primary {
+  padding: 16px 30px;
+  background: #201e1d;
+  color: #fff;
+  border: 0;
+  transition: background 160ms ease;
+}
+.gr-btn-primary:hover {
+  background: #ec3013;
+  color: #fff;
+}
+.gr-btn-secondary {
+  padding: 16px 30px;
+  border: 1px solid rgba(32, 30, 29, 0.25);
+  background: transparent;
+  color: #201e1d;
+  transition: border-color 160ms ease;
+}
+.gr-btn-secondary:hover {
+  border-color: #201e1d;
+  color: #201e1d;
+}
+
+.gr-section-pad {
+  padding-top: clamp(52px, 6vw, 84px);
+  padding-bottom: clamp(52px, 6vw, 84px);
+}
+.gr-gutter {
+  padding-left: clamp(20px, 5vw, 72px);
+  padding-right: clamp(20px, 5vw, 72px);
+}
+
+/* Stats grid: 4-up, 2x2 under 860px */
+.gr-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.gr-stats > div {
+  padding: 40px clamp(16px, 3vw, 40px);
+  text-align: center;
+  border-right: 1px solid var(--hairline);
+}
+.gr-stats > div:last-child {
+  border-right: 0;
+}
+@media (max-width: 860px) {
+  .gr-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .gr-stats > div:nth-child(2) {
+    border-right: 0;
+  }
+  .gr-stats > div:nth-child(1),
+  .gr-stats > div:nth-child(2) {
+    border-bottom: 1px solid var(--hairline);
+  }
+}
+
+/* Editorial band: 2-up spanning + detail, stacks under 860px */
+.gr-ed {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(32, 30, 29, 0.08);
+}
+@media (max-width: 860px) {
+  .gr-ed {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .gr-ed > figure {
+    grid-column: auto !important;
+    aspect-ratio: 4 / 3 !important;
+  }
+}
+
+/* Nav collapse under 640px */
+@media (max-width: 640px) {
+  .gr-nav {
+    grid-template-columns: 1fr auto !important;
+    gap: 12px !important;
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
+  }
+  .gr-navlinks {
+    display: none !important;
+  }
+  .gr-glass {
+    max-width: 100%;
+    box-shadow: 0 18px 40px rgba(32, 30, 29, 0.14);
+  }
+  .gr-modal {
+    max-height: calc(100% - 8px);
+    overflow-y: auto;
+  }
+}

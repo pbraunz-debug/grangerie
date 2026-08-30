@@ -1,0 +1,9 @@
+{
+  "name": "free-nap-socks",
+  "private": true,
+  "scripts": {
+    "build": "shopify app function build",
+    "typegen": "shopify app function typegen"
+  },
+  "type": "module"
+}

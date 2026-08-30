@@ -46,6 +46,13 @@ export function BuyBox({product, socksLine}: {product: Product; socksLine: strin
           ))}
         </div>
       </fieldset>
+      {size === 'Granny' && (
+        <p style={{fontSize: 13, lineHeight: '22px', color: 'var(--ink-65)', margin: '14px 0 0', maxWidth: '46ch'}}>
+          Granny is a size L, hemmed for women 4′10″ and under. Same cotton, same pockets, same
+          everything — the hem simply meets the ankle where the ankle actually is. We do not
+          consider this a special size. We consider it the ankle rule, honored.
+        </p>
+      )}
 
       <div style={{display: 'flex', alignItems: 'center', gap: 14, marginTop: 26}}>
         <span className="gr-label" style={{color: 'rgba(32,30,29,0.55)'}}>

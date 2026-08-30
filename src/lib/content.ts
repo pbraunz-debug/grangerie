@@ -64,7 +64,7 @@ function normalizeProduct(p: SanityProduct): Product {
   return {
     ...p,
     cutLabel: p.cutLabel || p.cut,
-    sizes: p.sizes?.length ? p.sizes : ['S', 'M', 'L', 'XL', '2X'],
+    sizes: p.sizes?.length ? p.sizes : ['S', 'M', 'L', 'XL', '2X', 'Granny'],
     images: (p.images ?? [])
       .filter((img) => img?.assetUrl)
       .map((img) => ({url: img.assetUrl, alt: img.alt})),

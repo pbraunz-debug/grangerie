@@ -58,6 +58,15 @@ export const product = defineType({
     }),
     defineField({name: 'inStock', type: 'boolean', initialValue: true}),
     defineField({
+      name: 'testimonial',
+      title: 'Product-page testimonial',
+      type: 'object',
+      fields: [
+        defineField({name: 'quote', type: 'text', rows: 3}),
+        defineField({name: 'attribution', type: 'string'}),
+      ],
+    }),
+    defineField({
       name: 'order',
       type: 'number',
       description: 'Position in the collection grid',

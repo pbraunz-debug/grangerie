@@ -29,7 +29,7 @@ export const productsQuery = defineQuery(
     _id, title, "handle": handle.current, shopifyProductId, cut, cutLabel,
     price, blurb, longDescription, fabricWeightOz,
     "images": images[]{"assetUrl": asset->url, "lqip": asset->metadata.lqip, "alt": alt},
-    sizes, inStock, order
+    sizes, inStock, order, testimonial
   }`,
 )
 
@@ -38,7 +38,7 @@ export const productByHandleQuery = defineQuery(
     _id, title, "handle": handle.current, shopifyProductId, cut, cutLabel,
     price, blurb, longDescription, fabricWeightOz,
     "images": images[]{"assetUrl": asset->url, "lqip": asset->metadata.lqip, "alt": alt},
-    sizes, inStock, order
+    sizes, inStock, order, testimonial
   }`,
 )
 

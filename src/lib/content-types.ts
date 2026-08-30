@@ -24,6 +24,7 @@ export interface Product {
   sizes: string[]
   inStock: boolean
   order?: number
+  testimonial?: {quote: string; attribution: string}
 }
 
 export interface Testimonial {

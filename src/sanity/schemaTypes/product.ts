@@ -54,7 +54,7 @@ export const product = defineType({
       name: 'sizes',
       type: 'array',
       of: [{type: 'string'}],
-      initialValue: ['S', 'M', 'L', 'XL', '2X'],
+      initialValue: ['S', 'M', 'L', 'XL', '2X', 'Granny'],
     }),
     defineField({name: 'inStock', type: 'boolean', initialValue: true}),
     defineField({

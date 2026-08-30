@@ -132,7 +132,7 @@ export const fallbackProducts: Product[] = [
     ],
     fabricWeightOz: 14,
     images: [{url: '/img/no1.jpeg', alt: 'The No. 1 — ankle-length faded-floral cotton nightgown, high neck, long sleeves'}],
-    sizes: ['S', 'M', 'L', 'XL', '2X'],
+    sizes: ['S', 'M', 'L', 'XL', '2X', 'Granny'],
     inStock: true,
     order: 1,
     testimonial: {
@@ -156,7 +156,7 @@ export const fallbackProducts: Product[] = [
     ],
     fabricWeightOz: 14,
     images: [{url: '/img/housecoat.jpeg', alt: 'The Housecoat — quilted floor-length housecoat, belted, hands in pockets'}],
-    sizes: ['S', 'M', 'L', 'XL', '2X'],
+    sizes: ['S', 'M', 'L', 'XL', '2X', 'Granny'],
     inStock: true,
     order: 2,
     testimonial: {
@@ -180,7 +180,7 @@ export const fallbackProducts: Product[] = [
     ],
     fabricWeightOz: 14,
     images: [{url: '/img/twopiece.jpeg', alt: 'The Two-Piece, Modest — loose flannel two-piece, long sleeves buttoned to the top'}],
-    sizes: ['S', 'M', 'L', 'XL', '2X'],
+    sizes: ['S', 'M', 'L', 'XL', '2X', 'Granny'],
     inStock: true,
     order: 3,
     testimonial: {
@@ -210,7 +210,7 @@ export const fallbackProducts: Product[] = [
         alt: 'The Big One — enormous tent-cut cotton nightgown, three-quarter sleeves',
       },
     ],
-    sizes: ['S', 'M', 'L', 'XL', '2X'],
+    sizes: ['S', 'M', 'L', 'XL', '2X', 'Granny'],
     inStock: true,
     order: 4,
     testimonial: {
@@ -340,7 +340,13 @@ export const fallbackPages: PageDoc[] = [
       {
         heading: 'What sizes do you carry?',
         paragraphs: [
-          'S through 2X, every cut generous. If you are between sizes, go up. In the history of this company, no one has ever put on a Grangerie and thought, \u201cI wish this were less.\u201d',
+          'S through 2X, plus Granny \u2014 a size L, hemmed for women 4\u203210\u2033 and under. Every cut generous. If you are between sizes, go up. In the history of this company, no one has ever put on a Grangerie and thought, \u201cI wish this were less.\u201d',
+        ],
+      },
+      {
+        heading: 'What is the Granny size?',
+        paragraphs: [
+          'A size L, hemmed for women four-foot-ten and under. Our promise is that the gown ends at the ankle, and we are not going to break that promise just because someone\u2019s ankles are closer to the ground. Grandmothers built this category. The least we can do is stop them from tripping on it.',
         ],
       },
       {

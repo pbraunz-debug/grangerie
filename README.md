@@ -52,7 +52,7 @@ seed source. **The copy is verbatim by design — do not paraphrase it.**
 
 1. Create the store (`grangerie.myshopify.com`), add the four products; each
    Sanity product mirrors Shopify via `shopifyProductId` (Sanity owns editorial,
-   Shopify owns inventory/price/checkout). Add size options S–2X.
+   Shopify owns inventory/price/checkout). Add size options S–2X plus Granny (same measurements as L, hemmed for 4′10″ and under; the Two-Piece bottom shortens, the top stays L).
 2. Create **Nap Socks — Oatmeal, One Size** and put its variant GID in
    `SHOPIFY_NAP_SOCKS_VARIANT_ID`.
 3. Custom app → Storefront API token → `SHOPIFY_STOREFRONT_ACCESS_TOKEN`.

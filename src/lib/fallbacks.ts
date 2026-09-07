@@ -315,6 +315,14 @@ export const fallbackPages: PageDoc[] = [
           'Ribbed, ankle-high, one size, a color we are calling Oatmeal. They are not for sale, they are not optional, and they are not a metaphor. They are socks. Put them on. Take a nap. That is the whole instruction.',
         ],
       },
+      {
+        heading: 'The add-ons',
+        paragraphs: [
+          'People ask if we sell add-ons. We offer two, and neither is for sale.',
+          'The first is a wadded-up Kleenex. Every sleeve develops one at the wrist within the first month of ownership. We do not put it there. We do not know who does. Per our policy on pockets, which we have decided extends to sleeves, we do not investigate.',
+          'The second is a hard candy, your choice of butterscotch or strawberry, which rides in the box the way it once rode in a purse: unannounced, slightly warm, and exactly the one you wanted.',
+        ],
+      },
     ],
   },
   {
@@ -372,6 +380,13 @@ export const fallbackPages: PageDoc[] = [
         paragraphs: ['No. The socks and the gown arrive together, like in-laws.'],
       },
       {
+        heading: 'Do you sell add-ons?',
+        paragraphs: [
+          'Two. A wadded-up Kleenex, which cannot be purchased, declined, or explained — every sleeve simply contains one by the third week, tucked at the wrist, looking slightly used, never used. And hard candies, your choice of butterscotch or strawberry. You will not be asked which. The correct one will be in the box.',
+          'Neither appears on the invoice. Our accountant has made her peace with this, annually.',
+        ],
+      },
+      {
         heading: 'My husband asked if you make anything shorter.',
         paragraphs: [
           'We got this question enough times that it earned a permanent spot on this page. No. Everything we make ends at the ankle. The ankle is a load-bearing part of our whole deal. Tell him we said hi.',
@@ -404,6 +419,7 @@ export const fallbackPages: PageDoc[] = [
         paragraphs: [
           'Orders ship within 2 business days from our warehouse. Standard shipping is free over $75, which, given the prices, is most orders, which is on purpose.',
           'Every box contains your order and one pair of nap socks. The socks are not listed as a surprise. We tell you everywhere. It is still somehow a surprise, and people seem to like that, so we have stopped fighting it.',
+          'There is also a hard candy in there, your choice of butterscotch or strawberry. You do not make the choice. The choice was made by someone who knew what you needed, and she has not been wrong yet.',
         ],
       },
       {
